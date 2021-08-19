@@ -7,10 +7,13 @@ print('\nWelcome To The Number Guessing Game\n')
 def gameMenu ():
 	print('START THE GAME? [Y/N]')
 	start = input()
+
 	if start == "Y":
 		playGame()
-	if start == "y":
+		
+	elif start == "y":
 		playGame()
+		
 	else:
 		gameMenu()
 
@@ -27,10 +30,11 @@ def playGame ():
 	if level == 1:
 		number = random.randint(1, 10)
 		range = 10
+		
 	elif level == 2:
 		number = random.randint(1, 50)
 		range = 50
-
+		
 	elif level == 3:
 		number = random.randint(1, 100)
 		range = 100
@@ -58,16 +62,15 @@ def playGame ():
 			print('Your guess was low.')
 			if hintLeft > 0:
 				print('\nDo you want a hint ? [Y/N]')
-				hint = input()
+				hint = input()				
 				if hint == "Y":
-					hintLeft = hintLeft - 1
+					hintLeft = hintLeft - 1					
 					if number % 2 == 0:
-						print('Hint: The number is even.')
+						print('Hint: The number is even.')						
 					else:
 						print('Hint: The number is odd.')
-
 				elif hint == "y":
-					hintLeft = hintLeft - 1
+					hintLeft = hintLeft - 1				
 					if number % 2 == 0:
 						print('Hint: The number is even.')
 					else:
@@ -84,14 +87,14 @@ def playGame ():
 						print('Hint: The number is even.')
 					else:
 						print('Hint: The number is odd.')
-
 				elif hint == "y":
 					hintLeft = hintLeft - 1
 					if number % 2 == 0:
 						print('Hint: The number is even.')
 					else:
 						print('Hint: The number is odd.')
-		if guess == number:
+
+		elif guess == number:
 			break
 
 	if guess == number:
@@ -101,6 +104,7 @@ def playGame ():
 	if guess != number:
 		number = str(number)
 		print('\nNope. The number I was thinking of was ' + number+'.\n')
+		
 	main()
 
 def main ():
